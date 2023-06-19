@@ -1,6 +1,6 @@
 package com.microservice.productservice.serviceImpl;
 
-import com.microservice.productservice.dto.ProductDTO;
+import com.microservice.productservice.dto.ProductRequest;
 import com.microservice.productservice.dto.ProductResponse;
 import com.microservice.productservice.model.Product;
 import com.microservice.productservice.repository.ProductRepository;
@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ModelMapper modelMapper;
     @Override
-    public String createProduct(ProductDTO productDTO) {
+    public String createProduct(ProductRequest productDTO) {
         Product product=modelMapper.map(productDTO,Product.class);
         productRepository.save(product);
         log.info("Product is {} saved",product.getId());

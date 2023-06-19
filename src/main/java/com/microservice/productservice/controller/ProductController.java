@@ -1,6 +1,6 @@
 package com.microservice.productservice.controller;
 
-import com.microservice.productservice.dto.ProductDTO;
+import com.microservice.productservice.dto.ProductRequest;
 import com.microservice.productservice.dto.ProductResponse;
 import com.microservice.productservice.dto.StandardResponse;
 import com.microservice.productservice.service.ProductService;
@@ -19,7 +19,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public ResponseEntity<StandardResponse>saveProduct(@RequestBody ProductDTO productDTO){
+    public ResponseEntity<StandardResponse>saveProduct(@RequestBody ProductRequest productDTO){
         String mes=productService.createProduct(productDTO);
         return new ResponseEntity<StandardResponse>(new
                 StandardResponse(200,"Product Saved.",mes), HttpStatus.CREATED);
